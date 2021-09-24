@@ -1,40 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html class="pag-formulario">
 <head lang="es">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
-    <article>
-        <a href="Main.html"><img src="img/home_icon.png" width="32" height="32"></a>
-        <h1>Formulario</h1>
-    </article>
+    <link rel="stylesheet" href="theme/style.css">
+    
+        
+    
     
     
 </head>
 <body>
-
+    <a href="Main.html"><img src="img/home_icon.png" width="32" height="32"></a>
     <section>
+        <h1>Rellene este formulario</h1>
         <form>
-            <p>Id del cliente: <input type="number" name="customer_id" size="40" required></p>
-            <p>Id de la tienda: <input type="number" name="store_id" size="40" required></p>
-            <p>Nombre: <input type="text" name="first_name" size="40" required></p>
-            <p>Apellidos: <input type="text" name="last_name" size="40" required></p>
-            <p>Email: <input type="email" name="email" size="40" required></p>
-            <p>Id de la dirección: <input type="number" name="adress_id" size="40" required></p>
-            <p>Activo:
+            <div>
+            <label for="customer_id">Id del cliente: </label>
+            <input type="number" name="customer_id" size="20" required>
+        </div>
+        <div>
+            <label for="store_id">Id de la tienda: </label>
+            <input type="number" name="store_id" size="20" required>
+        </div>
+        <div>
+            <label for="first_name">Nombre: </label>
+            <input type="text" name="first_name" size="20" required>
+        </div>
+        <div>
+            <label for="last_name">Apellidos: </label>
+            <input type="text" name="last_name" size="20" required>
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" size="20" required>
+        </div>
+        <div>
+            <label for="adress_id">Id de la dirección: </label>
+            <input type="number" name="adress_id" size="20" required>
+        </div>
+        <div>
+            <label for="active">Activo: </label>
+            
                 <input type="radio" name="active" value="y" checked> Si
                 <input type="radio" name="active" value="n"> No
-            </p>
-            <p>Fecha: <input type="date" name="fecha" required></p>
-            <p>Última actualización: <input type="date" name="update" required></p>
+        </div>
+        <div>
+            <label for="date">Fecha: </label>
+            <input type="date" name="date" required>
+        </div>
+        <div>
+            <label for="update">Última actualización: </label>
+            <input type="date" name="update" required>
+        </div>
             <p>
                 <input type="submit" value="Enviar">
                 <input type="reset" value="Borrar">
             </p>
+
         </form>
     </section>
     
+    <footer>
+        <p>
+            Todos los derechos de &copy; están reservados.
+        </p>
+    </footer>
 </body>
 </html>
 
