@@ -1,3 +1,8 @@
 :root {
     --error-color: rgb(163, 0, 0);
+    --footer-color: black;
+    --footer-letters: white;
+    --box-color:beige;
+    --wallpaper-color:darkgrey;
+    --button-color: black;
 }
