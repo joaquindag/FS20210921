@@ -4,6 +4,7 @@
   "description": "Ejemplos y ejercicios",
   "main": "index.js",
   "scripts": {
+    "lint": "npx eslint app/js/**/*js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joaquin",
@@ -12,6 +13,8 @@
     "bootstrap": "^5.1.1"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^7.32.0",
+    "eslint-plugin-jasmine": "^4.1.2",
+    "jasmine-browser-runner": "^0.8.0"
   }
 }
