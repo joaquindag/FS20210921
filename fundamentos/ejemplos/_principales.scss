@@ -1,0 +1,10 @@
+@mixin elementosFooter() {
+    height: 50px; 
+    background:var(--footer-color); 
+    width:100%; 
+    position:absolute; 
+    bottom:0; 
+    left:0; 
+    color: var(--footer-letters);
+    text-align: center;
+}

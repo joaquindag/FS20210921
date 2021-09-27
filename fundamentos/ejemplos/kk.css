@@ -1,0 +1,133 @@
+@import url("variables.css");
+.error-msg {
+  color: var(--error-color);
+}
+
+.grande {
+  font-size: 4em;
+}
+
+@media screen and (max-width: 350px) {
+  img {
+    display: none;
+  }
+}
+.formulario-body__section {
+  background-color: var(--box-color);
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 10px 10px 5px grey;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.pag-formulario body {
+  background-color: var(--wallpaper-color);
+}
+
+.formulario-body__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulario-body__footer {
+  height: 50px;
+  background: var(--footer-color);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: var(--footer-letters);
+  text-align: center;
+}
+
+.main-body__footer {
+  height: 50px;
+  background: var(--footer-color);
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  color: var(--footer-letters);
+  text-align: center;
+}
+
+.main-body__body {
+  background-color: var(--wallpaper-color);
+}
+
+.pag-main article {
+  border-radius: 25px;
+  background-color: var(--box-color);
+  padding: 10px;
+  margin: 10px;
+}
+
+.main-body__section {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  max-width: 350px;
+  flex-direction: row;
+}
+
+.box {
+  display: flex;
+  margin-right: 10px;
+  flex-wrap: wrap;
+}
+
+.pag-main button {
+  border: none;
+  color: var(--button-color);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.pag-presentacion body {
+  background-color: var(--wallpaper-color);
+}
+
+.pag-presentacion article {
+  display: flex;
+  background-color: var(--box-color);
+  border-radius: 25px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.presentacion-body__footer {
+  height: 50px;
+  background: var(--footer-color);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: var(--footer-letters);
+  text-align: center;
+}
+
+@media print {
+  input[type=submit], input[type=button], input[type=reset] {
+    display: none;
+  }
+
+  body > header {
+    display: none;
+  }
+
+  body {
+    font-size: 10pt;
+  }
+
+  img {
+    max-width: 200px;
+  }
+}
+
+/*# sourceMappingURL=kk.css.map */
