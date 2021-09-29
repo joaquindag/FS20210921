@@ -1,4 +1,4 @@
-describe("Player", function() {
+xdescribe("Player", function() {
   var player;
   var song;
 
@@ -15,7 +15,7 @@ describe("Player", function() {
     expect(player).toBePlaying(song);
   });
 
-  describe("when song has been paused", function() {
+  xdescribe("when song has been paused", function() {
     beforeEach(function() {
       player.play(song);
       player.pause();
@@ -46,7 +46,7 @@ describe("Player", function() {
   });
 
   //demonstrates use of expected exceptions
-  describe("#resume", function() {
+  xdescribe("#resume", function() {
     it("should throw an exception if song is already playing", function() {
       player.play(song);
 

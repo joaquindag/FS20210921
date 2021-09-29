@@ -1,7 +1,12 @@
 /*  Crear una función que devuelva un numero aleatorio (Math.random()) dentro del rango dado. */
 
 function random(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
+    let message="No has puesto un numero";
+    if(Number.isInteger(min,max)){
+        return Math.floor(Math.random() * (max - min)) + min;
+    } else{
+        return message;
+    }
 }
 
 /** Adivina el Número, generar un número entre el 0 y el 100, introducir un número e
@@ -68,10 +73,10 @@ function crearArray(longitud, dato){
 /** Crear una función que devuelva un determinado número de números primos. */
 
 
-function isPrimo(numero){
+function isPrimo(numero, numerosPrimos){
     let bandera=true;
-    for (let index = 2; index < numero; index++) {
-        if(numero % index==0){
+    for (let index = 0; index < numerosPrimos.length; index++) {
+        if(numero % numerosPrimos[index]==0){
             bandera=false;
         }
         
@@ -89,7 +94,7 @@ function primos(cuantos){
         let bandera=false;
         while (bandera==false) {
             if(contador!=0 && contador!=1){
-                if(isPrimo(contador)){
+                if(isPrimo(contador,numerosPrimos)){
                     numerosPrimos.push(contador);
                     bandera=true;
                 }
@@ -122,11 +127,14 @@ function nif(dni) {
        letra=letra.substring(numero,numero+1);
       if (letra!=letr.toUpperCase()) {
          alert('Dni erroneo, la letra del NIF no se corresponde');
+         return false;
        }else{
          alert('Dni correcto');
+         return true;
        }
     }else{
        alert('Dni erroneo, formato no válido');
+       return false;
      }
   }
 

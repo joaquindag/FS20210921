@@ -11,6 +11,16 @@ fdescribe('Pruebas de los ejercicios', function(){
 
             expect(resultado).toEqual(vector)
         })
+
+        it('Longitud y datos mal', function() {
+            let longitud=5;
+            let dato=true;
+            let vector=[true,true,false,true,false];
+
+            let resultado=crearArray(longitud,dato);
+
+            expect(resultado).not.toEqual(vector)
+        });
     }),
     describe('Ejercicio 4',function(){
         it('5 numeros primos',function(){
@@ -21,15 +31,53 @@ fdescribe('Pruebas de los ejercicios', function(){
 
             expect(resultado).toEqual(vector)
         })
+
+        it('Numeros primos no validos', function() {
+            let vector=[2,3,3,12,16];
+            let cuantos=5;
+
+            let resultado=primos(cuantos);
+
+            expect(resultado).not.toEqual(vector)
+        });
     })
+    describe('Ejercicio 5', function(){
+        it('DNI valido', function(){
+            let dni="65004204V"
+
+            expect(nif(dni)).toBeTruthy();
+        })
+
+        it('DNI no valido formato', function() {
+            let dni="65004204678VQ"
+
+            expect(nif(dni)).toBeFalse();
+        });
+
+        it('DNI no valido letra', function(){
+            let dni="65004205V"
+
+            expect(nif(dni)).toBeFalse();
+        })
+    })
+
     describe('Ejercicio 6', function(){
-        it('Palindromo', function(){
+        it('Es valido', function(){
             let cadenaFinal="larutanosaportootropasonatural";
             let cadena="La ruta nos aporto otro paso natural";
             
             let resultado=palindromo(cadena);
 
             expect(resultado).toEqual(cadenaFinal);
+        })
+
+        it('No es valido', function(){
+            let cadenaFinal="larutanosaportootropasonatural";
+            let cadena="La ruta nos aporto otro paso naturalaaa";
+            
+            let resultado=palindromo(cadena);
+
+            expect(resultado).not.toEqual(cadenaFinal);
         })
     })
 })
