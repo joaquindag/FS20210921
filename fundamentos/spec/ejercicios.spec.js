@@ -1,6 +1,38 @@
 
 
-fdescribe('Pruebas de los ejercicios', function(){
+xdescribe('Pruebas de los ejercicios', function(){
+
+    describe('Ejercicio 2', function () {
+        it('Mayor', function() {
+            let numeroAleatorio=50;
+            let numeroEscrito=5;
+            let resultadoPreHecho="Es mayor";
+
+            let resultado=adivinaSinPrompt(numeroAleatorio, numeroEscrito);
+
+            expect(resultado).toEqual(resultadoPreHecho)
+        });
+
+        it('Menor', function() {
+            let numeroAleatorio=50;
+            let numeroEscrito=99;
+            let resultadoPreHecho="Es menor";
+
+            let resultado=adivinaSinPrompt(numeroAleatorio, numeroEscrito);
+
+            expect(resultado).toEqual(resultadoPreHecho)
+        });
+
+        it('Igual', function() {
+            let numeroAleatorio=50;
+            let numeroEscrito=50;
+            let resultadoPreHecho="Es igual";
+
+            let resultado=adivinaSinPrompt(numeroAleatorio, numeroEscrito);
+
+            expect(resultado).toEqual(resultadoPreHecho)
+        });
+    })
     describe('Ejercicio 3', function(){
         it('Longitud 5 datos true', function(){
             let longitud=5;

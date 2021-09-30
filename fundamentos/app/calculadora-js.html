@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JS</title>
+</head>
+<body>
+    <h1>Calculadora</h1>
+<div>
+    <label for="operacion" id="lblOperacion"> </label>
+</div>
+    <label for="actual" id="lblActual">0</label>
+    <div>
+        <button id="btnBorrar" >C</button>
+        <button id="btnDividir" class="operadores">/</button>
+    </div>
+    <div>
+        <button id="btn7" class="numeros" >7</button>
+        <button id="btn8" class="numeros" >8</button>
+        <button id="btn9" class="numeros" >9</button>
+        <button id="btnMultiplicar" class="operadores">*</button>
+    </div>
+    <div>
+        <button id="btn4" class="numeros" >4</button>
+        <button id="btn5" class="numeros" >5</button>
+        <button id="btn6" class="numeros" >6</button>
+        <button id="btnRestar" class="operadores">-</button>
+    </div>
+    <div>
+        <button id="btn1" class="numeros" >1</button>
+        <button id="btn2" class="numeros" >2</button>
+        <button id="btn3" class="numeros" >3</button>
+        <button id="btnSumar" class="operadores">+</button>
+    </div>
+    <div>
+        <button id="btnCambiar" >+/-</button>
+        <button id="btn0" class="numeros" >0</button>
+        <button id="btnDecimal" class="numeros">.</button>
+        <button id="btnIgual" >=</button>
+    </div>
+
+    <script src="js/calculadora-js.js"></script>
+    <script>
+
+        let lblActual=document.querySelector('#lblActual');
+        let lblOperacion=document.querySelector('#lblOperacion');
+
+        let btn0=document.querySelector('#btn0');
+        let btn1=document.querySelector('#btn1');
+        let btn2=document.querySelector('#btn2');
+        let btn3=document.querySelector('#btn3');
+        let btn4=document.querySelector('#btn4');
+        let btn5=document.querySelector('#btn5');
+        let btn6=document.querySelector('#btn6');
+        let btn7=document.querySelector('#btn7');
+        let btn8=document.querySelector('#btn8');
+        let btn9=document.querySelector('#btn9');
+
+        let btnSumar=document.querySelector('#btnSumar');
+        let btnRestar=document.querySelector('#btnRestar');
+        let btnMultiplicar=document.querySelector('#btnMultiplicar');
+        let btnDividir=document.querySelector('#btnDividir');
+        let btnIgual=document.querySelector('#btnIgual');
+        let btnCambiar=document.querySelector('#btnCambiar');
+        let btnDecimal=document.querySelector('#btnDecimal');
+        let btnBorrar=document.querySelector('#btnBorrar');
+        
+
+        document.querySelectorAll('.numeros').forEach(tag=>{
+            tag.addEventListener('click', ev=>{
+                lblActual.textContent=anadir(ev.target.textContent, lblActual.textContent);
+            })
+        })
+        
+       document.querySelectorAll('.operadores').forEach(tag=>{
+           tag.addEventListener('click', ev=>{
+               lblOperacion.textContent=anadirOp(ev.target.textContent, lblActual.textContent)
+               lblActual.textContent=resetActual();
+           })
+       })
+
+       btnIgual.addEventListener('click',ev=>{
+           lblActual.textContent=calcular(lblOperacion.textContent,lblActual.textContent);
+           lblOperacion.textContent=switchOperacion(lblOperacion.textContent,lblActual.textContent);
+       })
+
+       btnBorrar.addEventListener('click', ev=>{
+           lblActual.textContent=resetActual();
+           lblOperacion.textContent=resetOp();
+       })
+
+       btnCambiar.addEventListener('click',ev=>{
+           lblActual.textContent=cambiarSigno(lblActual.textContent);
+       })
+
+      
+
+    </script>
+</body>
+</html>

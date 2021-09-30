@@ -13,40 +13,45 @@ function random(min, max) {
  *  informar si es igual, mayor o menor. 
  * Hay un máximo de 10 intentos para encontrar el número que sea igual. */
 
+function adivinaSinPrompt(numeroAleatorio, numeroEscrito) {
+
+    if(numeroAleatorio<numeroEscrito){
+        return "Es menor";
+    }
+
+    if(numeroAleatorio>numeroEscrito){
+        return "Es mayor";
+    }
+
+    if(numeroAleatorio==numeroEscrito){
+        return "Es igual";
+    }
+}
+
 
 function adivina(){
 
     let aleatorio=random(0,100);
-    let bandera=true;
+    
     alert(aleatorio)
     let contador=0;
+    let mensaje;
 
     do {
-        
-        var mensaje;
-        var opcion = prompt("Introduzca su numero:","");
+        mensaje=""
+        let opcion = prompt("Introduzca su numero:","");
     
-     
-        if (opcion == null || opcion == "") {
-            mensaje = "Has cancelado o introducido el numero vacío";
-            } else {
-                
-                
-                if(opcion>aleatorio){
-                        alert("Tu numero es mayor que el elegido")
-                }
-                if(opcion<aleatorio){
-                        alert("Tu numero es menor que el elegido")
-                }
-                if(opcion==aleatorio){
-                        alert("Tu numero es igual")
-                        bandera=false;
-                }
-                }
-        
+        if (opcion != null && opcion != "") {
+            
+            mensaje=adivinaSinPrompt(aleatorio,opcion);
+            alert(mensaje)
+
+            
+        }
+
         contador++;
                 
-    } while (bandera==true && contador!=5);
+    } while (mensaje!="Es igual" && contador!=5);
     
     
    
