@@ -1,0 +1,37 @@
+<p>Calculadora</p>
+<div class="bordeCalculadora">
+  <div class="resultado">
+    {{ resultado }}
+  </div>
+  <div class="container">
+    <div class="container">
+      <button (click)="borrar()">C</button>
+      <button (click)="borrarUltimo()">DEL</button>
+      <button (click)="add('/')">/</button>
+    </div>
+    <div class="container">
+      <button (click)="add('7')">7</button>
+      <button (click)="add('8')">8</button>
+      <button (click)="add('9')">9</button>
+      <button (click)="add('*')">*</button>
+    </div>
+    <div class="container">
+      <button (click)="add('4')">4</button>
+      <button (click)="add('5')">5</button>
+      <button (click)="add('6')">6</button>
+      <button (click)="add('-')">-</button>
+    </div>
+    <div class="container">
+      <button (click)="add('1')">1</button>
+      <button (click)="add('2')">2</button>
+      <button (click)="add('3')">3</button>
+      <button (click)="add('+')">+</button>
+    </div>
+    <div class="container">
+      <button (click)="cambio()">±</button>
+      <button (click)="add('0')">0</button>
+      <button (click)="add('.')">,</button>
+      <button (click)="calcular()">=</button>
+    </div>
+  </div>
+</div>

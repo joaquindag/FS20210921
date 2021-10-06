@@ -13,12 +13,12 @@ listado=[
   {id:1,nombre:"Sevilla"},
   {id:1,nombre:"Ciudad Real"},
 ]
-idProvincia=2;
+idProvincia=1;
 
 resultado:string | null=null;
 visible=true;
 estetica={ importante: true, error: false, urgente: true };
-fontSide=14;
+fontSize=14;
 
   constructor() { }
 
