@@ -13,6 +13,10 @@ import { SecurityModule } from './security';
 import { CommonModule } from '@angular/common';
 import { LoggerService } from 'src/lib/my-core';
 import { CommonServicesModule } from './common-services';
+import { FormularioComponent } from './formulario/formulario.component';
+import { ClientesFormularioComponent } from './clientes-formulario/clientes-formulario.component';
+import { FormButtonsComponent } from './common-component/form-buttons/form-buttons.component';
+import { ShowErrorMessagesComponent } from './common-component/show-error-messages/show-error-messages.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,10 @@ import { CommonServicesModule } from './common-services';
     DemosComponent,
     DinamicoComponent,
     CalculadoraComponent,
+    FormularioComponent,
+    ClientesFormularioComponent,
+    FormButtonsComponent,
+    ShowErrorMessagesComponent,
   ],
   imports: [
     BrowserModule,

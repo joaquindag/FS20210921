@@ -1,0 +1,31 @@
+{
+  "htmlhint.options": {
+    "attr-lowercase-no": false,
+    "attr-lowercase": [
+      "[ngClass]",
+      "[ngStyle]",
+      "ngNonBindable",
+      "ngPreserveWhitespace",
+      "[textContent]",
+      "[innerHTML]",
+      "*ngIf",
+      "[ngSwitch]",
+      "*ngSwitchCase",
+      "*ngSwitchDefault",
+      "[ngPlural]",
+      "ngPluralCase",
+      "*ngFor",
+      "*ngComponentOutlet",
+      "*ngTemplateOutlet",
+      "[ngTemplateOutletContext]",
+      "[(ngModel)]",
+      "[ngModelOptions]",
+      "ngModelGroup",
+      "[formControlName]",
+      "[formControl]",
+      "routerLink",
+      "[routerLink]",
+      "routerLinkActive"
+    ]
+  }
+}

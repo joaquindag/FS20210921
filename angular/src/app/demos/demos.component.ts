@@ -9,7 +9,7 @@ import { NotificationService, NotificationType } from '../common-services';
   styleUrls: ['./demos.component.scss']
 })
 
-export class DemosComponent implements OnInit, OnDestroy {
+export class DemosComponent implements OnInit {
 
 private suscriptor: Unsubscribable | undefined;
 
@@ -31,11 +31,7 @@ fontSize=14;
   constructor(private log:LoggerService, public vm:NotificationService) {
 
   }
-  ngOnDestroy(): void {
-    if(this.suscriptor){
-      this.suscriptor.unsubscribe();
-    }
-  }
+
 
   public get Nombre():string{
     return this.nombre;
@@ -74,13 +70,6 @@ fontSize=14;
   }
 
   ngOnInit(): void {
-    this.suscriptor=this.vm.Notification.subscribe(n=>{
-      if(n.Type !== NotificationType.error){
-        return;
-      }
-      window.alert(`Suscripcion: ${n.Message}`);
-      this.vm.remove(this.vm.Listado.length-1);
-    })
   }
 
 }
