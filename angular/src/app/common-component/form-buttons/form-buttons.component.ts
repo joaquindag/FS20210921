@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-form-buttons',
@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
   template: `
     <div>
-      <input type="button" value="send" (click)="enviar()" />
+      <input type="button" value="send" (click)="enviar()" [disabled]="deshabilitado">
       <input type="button" value="cancel" (click)="cancelar()">
     </div>
   `,
@@ -15,6 +15,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class FormButtonsComponent {
   @Output() send: EventEmitter<any> = new EventEmitter();
   @Output() cancel: EventEmitter<any> = new EventEmitter();
+
+  @Input() deshabilitado:boolean | null=true;
 
   enviar() {
     this.send.emit();
