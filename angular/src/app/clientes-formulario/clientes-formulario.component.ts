@@ -53,6 +53,8 @@ export class PersonasViewModel {
 
   public delete() {
 
+    if(!window.confirm('¿Seguro?')) return;
+    this.notify.add('Borrado');
   }
 
   public cancel() {

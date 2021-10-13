@@ -17,6 +17,8 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { ClientesFormularioComponent } from './clientes-formulario/clientes-formulario.component';
 import { FormButtonsComponent } from './common-component/form-buttons/form-buttons.component';
 import { ShowErrorMessagesComponent } from './common-component/show-error-messages/show-error-messages.component';
+import { CardComponent } from './card/card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { ShowErrorMessagesComponent } from './common-component/show-error-messag
     ClientesFormularioComponent,
     FormButtonsComponent,
     ShowErrorMessagesComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { ShowErrorMessagesComponent } from './common-component/show-error-messag
     MainModule,
     SecurityModule,
     CommonModule,
-    CommonServicesModule
+    CommonServicesModule,
+    HttpClientModule,
   ],
   providers: [
     LoggerService
