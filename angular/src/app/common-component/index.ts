@@ -1,1 +1,1 @@
-// export * from './common-component.module';
+export * from './common-component.module';

@@ -1,5 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Injectable, OnDestroy, OnInit } from '@angular/core';
 import { ContactosViewModelService } from './servicios.service';
+
+@Injectable({providedIn: 'root'})
 
 @Component({
   selector: 'app-contactos',
@@ -11,6 +13,8 @@ export class ContactosComponent implements OnInit {
   public get VM(): ContactosViewModelService {
     return this.vm;
   }
+
+
   ngOnInit(): void {
     this.vm.list();
   }
@@ -21,11 +25,14 @@ export class ContactosComponent implements OnInit {
   styleUrls: ['./componente.component.scss'],
 })
 export class ContactosListComponent implements OnInit {
+  public page:number=0;
   constructor(protected vm: ContactosViewModelService) {}
   public get VM(): ContactosViewModelService {
     return this.vm;
   }
   ngOnInit(): void {}
+
+
 }
 @Component({
   selector: 'app-contactos-add',

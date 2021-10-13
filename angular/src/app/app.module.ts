@@ -15,11 +15,10 @@ import { LoggerService } from 'src/lib/my-core';
 import { CommonServicesModule } from './common-services';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ClientesFormularioComponent } from './clientes-formulario/clientes-formulario.component';
-import { FormButtonsComponent } from './common-component/form-buttons/form-buttons.component';
-import { ShowErrorMessagesComponent } from './common-component/show-error-messages/show-error-messages.component';
-import { CardComponent } from './card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactosModule } from './contactos';
+import { CommonComponentModule } from './common-component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -29,9 +28,7 @@ import { ContactosModule } from './contactos';
     CalculadoraComponent,
     FormularioComponent,
     ClientesFormularioComponent,
-    FormButtonsComponent,
-    ShowErrorMessagesComponent,
-    CardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -43,7 +40,9 @@ import { ContactosModule } from './contactos';
     CommonModule,
     CommonServicesModule,
     HttpClientModule,
-    ContactosModule
+    ContactosModule,
+    CommonComponentModule,
+    NgxPaginationModule
   ],
   providers: [
     LoggerService

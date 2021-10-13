@@ -73,10 +73,6 @@ export class PersonasViewModel {
 })
 export class ClientesFormularioComponent implements OnInit {
 
-  errorObligatorio:string="Es obligatorio."
-  errorCorreo:string="No es un correo electrónico valido."
-  errorMinMax:string="Debe tener entre 2 y 10 letras."
-
   constructor(public vm: PersonasViewModel) { }
 
   ngOnInit(): void {
