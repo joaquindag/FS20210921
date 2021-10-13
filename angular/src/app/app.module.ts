@@ -19,6 +19,7 @@ import { FormButtonsComponent } from './common-component/form-buttons/form-butto
 import { ShowErrorMessagesComponent } from './common-component/show-error-messages/show-error-messages.component';
 import { CardComponent } from './card/card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactosModule } from './contactos';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     CommonServicesModule,
     HttpClientModule,
+    ContactosModule
   ],
   providers: [
     LoggerService
