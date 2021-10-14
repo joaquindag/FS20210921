@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoggerService } from 'src/lib/my-core';
 import { ContactosDAOService } from '../base-code/RESTDAOService';
 import { NotificationService } from '../common-services';
@@ -11,11 +12,13 @@ export class ContactosViewModelService {
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
+  protected listURL='/contactos';
 
   constructor(
     protected notify: NotificationService,
     protected out: LoggerService,
-    protected dao: ContactosDAOService
+    protected dao: ContactosDAOService,
+    protected router:Router
   ) {}
 
   public get Modo(): ModoCRUD {
@@ -79,7 +82,8 @@ export class ContactosViewModelService {
   public cancel(): void {
     this.elemento = {};
     this.idOriginal = null;
-    this.list();
+    // this.list();
+    this.router.navigateByUrl(this.listURL);
   }
 
   public send(): void {

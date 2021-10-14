@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactosModule } from './contactos';
 import { CommonComponentModule } from './common-component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NotificationModalComponent } from './main/notification-modal/notification-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CalculadoraComponent,
     FormularioComponent,
     ClientesFormularioComponent,
+    NotificationModalComponent,
 
   ],
   imports: [
@@ -42,7 +44,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     ContactosModule,
     CommonComponentModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MainModule
   ],
   providers: [
     LoggerService
