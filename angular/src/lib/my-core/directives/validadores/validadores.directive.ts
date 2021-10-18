@@ -1,6 +1,6 @@
 import { Directive, ElementRef, forwardRef, Input } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator, ValidatorFn } from '@angular/forms';
-// import { convertValue } from './utils.class';
+import { convertValue } from './utils.class';
 
 export function UppercaseValidation(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -16,22 +16,6 @@ export function UppercaseValidation(): ValidatorFn {
 export class UppercaseValidator implements Validator {
   validate(control: AbstractControl): ValidationErrors | null {
     return UppercaseValidation()(control);
-  }
-}
-export function LowercaseValidation(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    if (!control.value) { return null; }
-    return control.value === control.value.toLowerCase() ? null : { lowercase: 'Tiene que estar en minúsculas' }
-  };
-}
-
-@Directive({
-  selector: '[lowercase][formControlName],[lowercase][formControl],[lowercase][ngModel]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: LowercaseValidator, multi: true }]
-})
-export class LowercaseValidator implements Validator {
-  validate(control: AbstractControl): ValidationErrors | null {
-    return LowercaseValidation()(control);
   }
 }
 
@@ -162,4 +146,4 @@ export class NotBlankValidator implements Validator {
 }
 
 
-export const MIS_VALIDADORES = [UppercaseValidator, LowercaseValidator, NIFValidator, TypeValidator, ExcludeValidator, NotBlankValidator ]
+export const MIS_VALIDADORES = [UppercaseValidator, NIFValidator, TypeValidator, ExcludeValidator, NotBlankValidator ]

@@ -55,9 +55,6 @@ export class ShowErrorsDirective implements OnChanges {
         case 'max':
           msg += `El valor debe ser inferior o igual a ${this.errors[err].max}. `;
           break;
-        case 'lowercase':
-          msg+=`Debe ir en minúsculas.`;
-          break;
         default:
           if (typeof this.errors[err] === 'string')
             msg += `${this.errors[err]}${this.errors[err].endsWith('.')?'':'.'} `;
@@ -71,4 +68,5 @@ export class ShowErrorsDirective implements OnChanges {
   }
 }
 
-export const DIRECTIVAS_ATRIBUTO = [ WindowConfirmDirective, ShowDirective, ShowErrorsDirective]
+
+export const DIRECTIVAS_ATRIBUTO = [WindowConfirmDirective, ShowDirective, ShowErrorsDirective,]
