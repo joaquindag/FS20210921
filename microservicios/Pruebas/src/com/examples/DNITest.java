@@ -31,10 +31,10 @@ class DNITest {
 	@Test
 	void testIsDNIValid() {
 		assertAll("DNI",
-				() -> assertTrue(dni.isDNIValid("65004204V")),
-				() -> assertFalse(dni.isDNIValid("00000000D")),
-				() -> assertThrows(Exception.class, ()->dni.isDNIValid(null)),
-				() -> assertFalse(dni.isDNIValid(""))
+				() -> assertTrue(dni.isDNIValid("65004204V"),"Validar DNI valido"),
+				() -> assertFalse(dni.isDNIValid("00000000D"),"Validar DNI no valido"),
+				() -> assertThrows(Exception.class, ()->dni.isDNIValid(null),"Validar DNI null"),
+				() -> assertFalse(dni.isDNIValid(""),"Validar DNI cadena vacia")
 		);
 		
 	}

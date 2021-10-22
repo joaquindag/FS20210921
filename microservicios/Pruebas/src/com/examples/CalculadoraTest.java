@@ -2,6 +2,7 @@ package com.examples;
 
 import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -15,9 +16,13 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 class CalculadoraTest {
 	Calculadora calc;
 
@@ -79,6 +84,20 @@ class CalculadoraTest {
 //			}
 //			assertEquals(0, calc.divide(0, 0), "la segunda");
 			assertThrows(Exception.class, () -> calc.divide(1, 0));
+		}
+		
+	}
+	@Nested
+	@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+	class Mockeado{
+		@Mock
+		Calculadora calculadora;
+		
+		@Test
+		void suma_mock(){
+			when(calculadora.suma(2,2)).thenReturn(2.0);
+			
+			assertEquals(calculadora.suma(2, 2), 2);
 		}
 	}
 }
