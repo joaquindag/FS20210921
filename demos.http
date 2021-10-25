@@ -91,8 +91,17 @@ delete  http://localhost:8001/actores/206
 
 ###
 
-GET http://localhost:8010/categorias/1
+GET http://localhost:8010/categorias
 
 ###
 
 GET http://localhost:8001/actores
+
+###
+
+GET http://localhost:8020/lenguajes
+
+
+###
+
+GET http://localhost:8030/peliculas
