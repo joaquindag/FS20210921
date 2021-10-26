@@ -99,9 +99,9 @@ GET http://localhost:8001/actores
 
 ###
 
-GET http://localhost:8020/lenguajes
+GET http://localhost:8010/lenguajes
 
 
 ###
 
-GET http://localhost:8030/peliculas
+GET http://localhost:8010/peliculas

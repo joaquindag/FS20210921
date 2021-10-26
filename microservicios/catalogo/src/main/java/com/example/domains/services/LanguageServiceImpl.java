@@ -34,7 +34,7 @@ public class LanguageServiceImpl implements LanguageService {
 		if(item == null)
 			throw new InvalidDataException("Faltan los datos");
 		if(item.isInvalid())
-			throw new InvalidDataException(item.getErroString());
+			throw new InvalidDataException(item.getErrorsString());
 		if(getOne(item.getLanguageId()).isPresent())
 			throw new DuplicateKeyException();
 		return dao.save(item);
@@ -45,7 +45,7 @@ public class LanguageServiceImpl implements LanguageService {
 		if(item == null)
 			throw new InvalidDataException("Faltan los datos");
 		if(item.isInvalid())
-			throw new InvalidDataException(item.getErroString());
+			throw new InvalidDataException(item.getErrorsString());
 		if(getOne(item.getLanguageId()).isEmpty())
 			throw new NotFoundException();
 		return dao.save(item);
