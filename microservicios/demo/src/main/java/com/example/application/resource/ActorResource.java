@@ -39,10 +39,13 @@ import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
 import com.example.exceptions.NotFoundException;
 
+import io.swagger.annotations.Api;
+
 import org.springframework.http.HttpStatus;
 
 @RestController
 @RequestMapping(path = "/actores")
+@Api(value = "Manteniento de actores", description = "Permite mantener la lista de actores utilizados en el reaparto de las peliculas")
 public class ActorResource {
 	@Autowired
 	ActorService srv;
@@ -76,7 +79,9 @@ public class ActorResource {
 		if(actor.isEmpty())
 			throw new NotFoundException();
 		else {
-			return (List<FilmShort>) actor.get().getFilmActors().stream().map(item -> FilmShort.from(item)).collect(Collectors.toList());
+			return (List<FilmShort>) actor.get().getFilmActors().stream()
+					.map(item -> FilmShort.from(item))
+					.collect(Collectors.toList());
 		}
 	}
 	

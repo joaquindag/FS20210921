@@ -99,9 +99,46 @@ GET http://localhost:8001/actores
 
 ###
 
-GET http://localhost:8010/lenguajes
+get http://localhost:8010/idiomas
 
 
 ###
 
-GET http://localhost:8010/peliculas
+GET http://localhost:8010/peliculas/1
+
+
+###
+
+post http://localhost:8010/peliculas
+Content-Type: application/json
+
+
+###
+
+put http://localhost:8010/peliculas/1001
+Content-Type: application/json
+
+{
+  "id": 1001,
+  "titulo": "Nueva",
+}
+
+###
+
+post http://localhost:8010/lenguajes
+Content-Type: application/json
+
+{
+  "languageId": 0,
+  "name": "Spanish"
+}
+
+###
+
+PUT http://localhost:8010/lenguajes/7
+Content-Type: application/json
+
+{
+  "languageId": 7,
+  "name": "Espanol"
+}

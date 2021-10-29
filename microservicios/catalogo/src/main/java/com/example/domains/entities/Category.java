@@ -1,11 +1,12 @@
 package com.example.domains.entities;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
 import org.hibernate.validator.constraints.Length;
 
 import com.example.domains.core.EntityBase;
@@ -34,6 +35,7 @@ public class Category extends EntityBase<Category> implements Serializable {
 	private int categoryId;
 
 	@Column(name="last_update")
+	@Generated(value = GenerationTime.ALWAYS)
 	@PastOrPresent
 	@JsonIgnore
 	private Timestamp lastUpdate;
@@ -54,28 +56,6 @@ public class Category extends EntityBase<Category> implements Serializable {
 	public Category(int categoryId) {
 		super();
 		this.categoryId = categoryId;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(categoryId);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Category other = (Category) obj;
-		return categoryId == other.categoryId;
-	}
-
-	@Override
-	public String toString() {
-		return "Category [categoryId=" + categoryId + ", lastUpdate=" + lastUpdate + ", name=" + name + "]";
 	}
 
 	public int getCategoryId() {
@@ -122,6 +102,28 @@ public class Category extends EntityBase<Category> implements Serializable {
 		filmCategory.setCategory(null);
 
 		return filmCategory;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(categoryId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Category other = (Category) obj;
+		return categoryId == other.categoryId;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [categoryId=" + categoryId + ", name=" + name + ", lastUpdate=" + lastUpdate + "]";
 	}
 
 }

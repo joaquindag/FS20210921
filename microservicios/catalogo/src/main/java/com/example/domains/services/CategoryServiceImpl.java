@@ -1,11 +1,12 @@
 package com.example.domains.services;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
 
 import com.example.domains.contracts.services.CategoryService;
 import com.example.domains.entities.Category;
@@ -61,6 +62,11 @@ public class CategoryServiceImpl implements CategoryService {
 		if(item == null)
 			throw new InvalidDataException("Faltan los datos");
 		deleteById(item.getCategoryId());
+	}
+
+	@Override
+	public List<Category> novedades(Timestamp fecha) {
+		return dao.findByLastUpdateGreaterThanEqualOrderByLastUpdate(fecha);
 	}
 
 }
