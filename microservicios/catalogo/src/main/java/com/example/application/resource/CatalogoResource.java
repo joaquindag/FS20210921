@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 import lombok.Value;
 
 @RestController
-@RequestMapping(path = "/")
+@RequestMapping(path = "/categorias")
 public class CatalogoResource {
 	@Autowired
 	private FilmResource filmSrv;

@@ -1,4 +1,4 @@
-<h1>Contacto</h1>
+<h1>Peliculas</h1>
 <form #miForm="ngForm">
   <div class="form-row">
     <div class="form-group col-md-2">
@@ -7,7 +7,7 @@
         [(ngModel)]="VM.Elemento.id" #id="ngModel" required min="0">
       <div class="invalid-feedback" [hidden]="!id.hasError('required') || miForm.pristine">Es obligatorio</div>
     </div>
-    <div class="form-group col-md-2">
+    <!-- <div class="form-group col-md-2">
       <label class="form-label" for="tratamiento">Tratamiento:</label>
       <select class="form-control form-select" name="tratamiento" id="tratamiento" [(ngModel)]="VM.Elemento.tratamiento"
         #tratamiento="ngModel">
@@ -21,20 +21,20 @@
         <option>Excmo.</option>
         <option>Excma.</option>
       </select>
-    </div>
+    </div> -->
     <div class="form-group col-md-4">
-      <label class="form-label" for="nombre">Nombre:</label>
-      <input class="form-control" [class.is-invalid]="nombre.invalid" type="text" name="nombre" id="nombre"
-        [(ngModel)]="VM.Elemento.nombre" #nombre="ngModel" required minlength="2" maxlength="50">
-      <div class="invalid-feedback" [hidden]="!nombre?.errors?.required">Es obligatorio</div>
-      <div class="invalid-feedback" [hidden]="!nombre?.errors?.minlength && !nombre?.errors?.maxlength">
+      <label class="form-label" for="titulo">Titulo:</label>
+      <input class="form-control" [class.is-invalid]="titulo.invalid" type="text" name="titulo" id="titulo"
+        [(ngModel)]="VM.Elemento.titulo" #titulo="ngModel" required minlength="2" maxlength="50">
+      <div class="invalid-feedback" [hidden]="!titulo?.errors?.required">Es obligatorio</div>
+      <div class="invalid-feedback" [hidden]="!titulo?.errors?.minlength && !titulo?.errors?.maxlength">
         Debe tener entre 2 y 10 letras</div>
     </div>
     <div class="form-group col-md-4">
-      <label class="form-label" for="apellidos">Apellidos:</label>
-      <input class="form-control" [class.is-invalid]="apellidos.invalid" type="text" name="apellidos" id="apellidos"
-        [(ngModel)]="VM.Elemento.apellidos" #apellidos="ngModel" minlength="2" maxlength="50">
-      <div class="invalid-feedback" [hidden]="!apellidos?.errors?.minlength && !apellidos?.errors?.maxlength">
+      <label class="form-label" for="descripcion">Descripcion:</label>
+      <input class="form-control" [class.is-invalid]="descripcion.invalid" type="text" name="descripcion" id="descripcion"
+        [(ngModel)]="VM.Elemento.descripcion" #descripcion="ngModel" minlength="2" maxlength="50">
+      <div class="invalid-feedback" [hidden]="!descripcion?.errors?.minlength && !descripcion?.errors?.maxlength">
         Debe tener entre 2 y 10 letras</div>
     </div>
   </div>

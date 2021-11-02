@@ -1,29 +1,20 @@
-// import { NgModule } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { FormsModule } from '@angular/forms';
-// import { RouterModule } from '@angular/router';
-// import { MyCoreModule } from 'src/lib/my-core';
-// import { CommonServicesModule } from '../common-services';
-// import { ContactosComponent, CONTACTOS_COMPONENTES } from './componente.component';
 import {PaginatorModule} from 'primeng/paginator';
-// import { CommonComponentModule } from '../common-component';
 
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { MyCoreModule } from "src/lib/my-core";
-import { ContactosComponent, CONTACTOS_COMPONENTES } from ".";
+import { PELICULAS_COMPONENTES } from ".";
 import { CommonComponentModule } from "../common-component";
 import { CommonServicesModule } from "../common-services";
 
 @NgModule({
   declarations: [
-    CONTACTOS_COMPONENTES,
+    PELICULAS_COMPONENTES,
   ],
   exports: [
-    CONTACTOS_COMPONENTES,
-    // ContactosComponent,
+    PELICULAS_COMPONENTES,
   ],
   imports: [
     CommonModule, FormsModule, RouterModule.forChild([]),
@@ -34,4 +25,4 @@ import { CommonServicesModule } from "../common-services";
 
   ]
 })
-export class ContactosModule { }
+export class PeliculasModule { }

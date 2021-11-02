@@ -8,26 +8,29 @@ import { ModoCRUD } from '../base-code/tipos';
 import { NavigationService, NotificationService } from '../common-services';
 import { AuthService, AUTH_REQUIRED } from '../security';
 
-export class Actores {
+export class Categorias {
   id: number = 0;
   nombre: string | null = null;
-  apellidos: string | null = null;
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class ActoresDAOService extends RESTDAOService<any, any> {
+export class CategoriasDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, 'actores', { context: new HttpContext().set(AUTH_REQUIRED, true) });
+    super(http, 'categorias', { context: new HttpContext().set(AUTH_REQUIRED, true) });
   }
   page(page: number, rows: number = 20): Observable<{ page: number, pages: number, rows: number, list: Array<any> }> {
-    return new Observable<{ page: number, pages: number, rows: number, list: Array<any> }>(subscriber => {
-
-      this.http.get<any>(`${this.baseUrl}?page=${page}&size=${rows}`, this.option)
+    return new Observable(subscriber => {
+      this.http.get<{ pages: number, rows: number }>(`${this.baseUrl}?page=count&rows=${rows}`, this.option)
         .subscribe(
           data => {
-            subscriber.next({ page:data.number, pages: data.totalPages, rows: data.size, list: data.content });
+            if (page >= data.pages) page = data.pages > 0 ? data.pages - 1 : 0;
+            this.http.get<Array<any>>(`${this.baseUrl}?page=${page}&size=${rows}&sort=nombre`, this.option)
+              .subscribe(
+                lst => subscriber.next({ page, pages: data.pages, rows: data.rows, list: lst }),
+                err => subscriber.error(err)
+              )
           },
           err => subscriber.error(err)
         )
@@ -38,16 +41,16 @@ export class ActoresDAOService extends RESTDAOService<any, any> {
 @Injectable({
   providedIn: 'root'
 })
-export class ActoresViewModelService {
+export class CategoriasViewModelService {
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
-  protected listURL = '/actores';
+  protected listURL = '/categorias';
 
   constructor(protected notify: NotificationService, public auth: AuthService,
     protected out: LoggerService, private navigation: NavigationService,
-    protected dao: ActoresDAOService, protected router: Router) { }
+    protected dao: CategoriasDAOService, protected router: Router) { }
 
   public get Modo(): ModoCRUD { return this.modo; }
   public get Listado(): Array<any> { return this.listado; }
@@ -130,18 +133,19 @@ export class ActoresViewModelService {
   page = 0;
   totalPages = 0;
   totalRows = 0;
-  rowsPerPage = 20;
+  rowsPerPage = 8;
   load(page: number = -1) {
-    if(page < 0) page = this.page
-    this.dao.page(page, this.rowsPerPage).subscribe(
-      rslt => {
-        this.page = rslt.page;
-        this.totalPages = rslt.pages;
-        this.totalRows = rslt.rows;
-        this.listado = rslt.list;
-        this.modo = 'list';
-      },
-      err => this.notify.add(err.message)
-    )
+    this.list();
+    // if(page < 0) page = this.page
+    // this.dao.page(page, this.rowsPerPage).subscribe(
+    //   rslt => {
+    //     this.page = rslt.page;
+    //     this.totalPages = rslt.pages;
+    //     this.totalRows = rslt.rows;
+    //     this.listado = rslt.list;
+    //     this.modo = 'list';
+    //   },
+    //   err => this.notify.add(err.message)
+    // )
   }
 }

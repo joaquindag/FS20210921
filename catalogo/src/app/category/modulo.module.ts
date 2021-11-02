@@ -7,14 +7,14 @@ import { RouterModule } from "@angular/router";
 import { CommonComponentModule } from "../common-component";
 import { CommonServicesModule } from "../common-services";
 import { MyCoreModule } from 'src/lib/my-core';
-import { ACTORES_COMPONENTES } from '.';
+import { CATEGORIAS_COMPONENTES } from '.';
 
 @NgModule({
   declarations: [
-    ACTORES_COMPONENTES
+    CATEGORIAS_COMPONENTES
   ],
   exports: [
-    ACTORES_COMPONENTES
+    CATEGORIAS_COMPONENTES
   ],
   imports: [
     CommonModule, FormsModule, RouterModule.forChild([]),
@@ -25,4 +25,4 @@ import { ACTORES_COMPONENTES } from '.';
 
   ]
 })
-export class ActoresModule { }
+export class CategoriasModule { }

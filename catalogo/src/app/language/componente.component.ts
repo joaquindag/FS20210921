@@ -1,15 +1,16 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { ActoresViewModelService } from './servicios.service';
+import { IdiomasViewModelService } from './servicios.service';
 
 @Component({
-  selector: 'actor',
+  selector: 'idioma',
   templateUrl: './tmpl-anfitrion.component.html',
   styleUrls: ['./componente.component.scss']
 })
-export class ActoresComponent implements OnInit, OnDestroy {
-  constructor(protected vm: ActoresViewModelService) { }
-  public get VM(): ActoresViewModelService { return this.vm; }
+export class IdiomasComponent implements OnInit {
+
+  constructor(protected vm: IdiomasViewModelService) { }
+  public get VM(): IdiomasViewModelService { return this.vm; }
   ngOnInit(): void {
     this.vm.load();
   }
@@ -37,18 +38,18 @@ export class BotonesComponent implements OnInit, OnDestroy {
   get hasEdit(): boolean { return this.edit.observers.length > 0; }
   get hasDelete(): boolean { return this.delete.observers.length > 0; }
 
-  constructor(protected vm: ActoresViewModelService) { }
+  constructor(protected vm: IdiomasViewModelService) { }
   ngOnInit(): void { }
   ngOnDestroy(): void {  }
 }
 @Component({
-  selector: 'app-actores-list',
+  selector: 'app-idiomas-list',
   templateUrl: './tmpl-list.con-rutas.component.html',
   styleUrls: ['./componente.component.scss']
 })
-export class ActoresListComponent implements OnInit {
-  constructor(protected vm: ActoresViewModelService) { }
-  public get VM(): ActoresViewModelService { return this.vm; }
+export class IdiomasListComponent implements OnInit {
+  constructor(protected vm: IdiomasViewModelService) { }
+  public get VM(): IdiomasViewModelService { return this.vm; }
   ngOnInit(): void {
     //this.vm.list();
     this.vm.load();
@@ -56,28 +57,28 @@ export class ActoresListComponent implements OnInit {
 }
 
 @Component({
-  selector: 'app-actores-add',
+  selector: 'app-idiomas-add',
   templateUrl: './tmpl-form.component.html',
   styleUrls: ['./componente.component.scss']
 })
-export class ActoresAddComponent implements OnInit {
-  constructor(protected vm: ActoresViewModelService) { }
-  public get VM(): ActoresViewModelService { return this.vm; }
+export class IdiomasAddComponent implements OnInit {
+  constructor(protected vm: IdiomasViewModelService) { }
+  public get VM(): IdiomasViewModelService { return this.vm; }
   ngOnInit(): void {
     this.VM.add();
   }
 }
 
 @Component({
-  selector: 'app-actores-edit',
+  selector: 'app-idiomas-edit',
   templateUrl: './tmpl-form.component.html',
   styleUrls: ['./componente.component.scss']
 })
-export class ActoresEditComponent implements OnInit, OnDestroy {
+export class IdiomasEditComponent implements OnInit, OnDestroy {
   private obs$: any;
-  constructor(protected vm: ActoresViewModelService,
+  constructor(protected vm: IdiomasViewModelService,
     protected route: ActivatedRoute, protected router: Router) { }
-  public get VM(): ActoresViewModelService { return this.vm; }
+  public get VM(): IdiomasViewModelService { return this.vm; }
   ngOnInit(): void {
     this.obs$ = this.route.paramMap.subscribe(
       (params: ParamMap) => {
@@ -95,15 +96,15 @@ export class ActoresEditComponent implements OnInit, OnDestroy {
 }
 
 @Component({
-  selector: 'app-actores-view',
+  selector: 'app-idiomas-view',
   templateUrl: './tmpl-view.component.html',
   styleUrls: ['./componente.component.scss']
 })
-export class ActoresViewComponent implements OnInit, OnDestroy {
+export class IdiomasViewComponent implements OnInit, OnDestroy {
   private obs$: any;
-  constructor(protected vm: ActoresViewModelService,
+  constructor(protected vm: IdiomasViewModelService,
     protected route: ActivatedRoute, protected router: Router) { }
-  public get VM(): ActoresViewModelService { return this.vm; }
+  public get VM(): IdiomasViewModelService { return this.vm; }
   ngOnInit(): void {
     this.obs$ = this.route.paramMap.subscribe(
       (params: ParamMap) => {
@@ -120,7 +121,9 @@ export class ActoresViewComponent implements OnInit, OnDestroy {
   }
 }
 
-export const ACTORES_COMPONENTES = [
-  ActoresComponent, ActoresListComponent, ActoresAddComponent,
-  ActoresEditComponent, ActoresViewComponent, BotonesComponent,
+export const IDIOMAS_COMPONENTES = [
+  IdiomasComponent, IdiomasListComponent, IdiomasAddComponent,
+  IdiomasEditComponent, IdiomasViewComponent, BotonesComponent,
 ];
+
+

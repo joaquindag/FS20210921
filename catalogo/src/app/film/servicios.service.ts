@@ -8,37 +8,35 @@ import { ModoCRUD } from '../base-code/tipos';
 import { NavigationService, NotificationService } from '../common-services';
 import { AuthService, AUTH_REQUIRED } from '../security';
 
-export class Contactos {
+export class Peliculas {
   id: number = 0;
-  tratamiento: string | null = null;
-  nombre: string | null = null;
-  apellidos: string | null = null;
-  telefono: string | null = null;
-  email: string | null = null;
-  sexo: string | null = null;
-  nacimiento: string | null = null;
-  avatar: string | null = null;
-  conflictivo: boolean = false;
+  title: string = "";
+  descripcion: string | null = null;
+  release_year: string | null = null;
+  languageId: number= 0;
+  originalLanguage: number | null = null;
+  rental_duration: number = 0;
+  rental_rate: number = 0;
+  length: number | null = null;
+  replacement_cost: number = 0;
+  // rating: enum
+
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContactosDAOService extends RESTDAOService<any, any> {
+export class PeliculasDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, 'contactos', { withCredentials: true, context: new HttpContext().set(AUTH_REQUIRED, true) });
+    super(http, 'peliculas', { context: new HttpContext().set(AUTH_REQUIRED, true) });
   }
   page(page: number, rows: number = 20): Observable<{ page: number, pages: number, rows: number, list: Array<any> }> {
-    return new Observable(subscriber => {
-      this.http.get<{ pages: number, rows: number }>(`${this.baseUrl}?_page=count&_rows=${rows}`, this.option)
+    return new Observable<{ page: number, pages: number, rows: number, list: Array<any> }>(subscriber => {
+
+      this.http.get<any>(`${this.baseUrl}?page=${page}&size=${rows}`, this.option)
         .subscribe(
           data => {
-            if (page >= data.pages) page = data.pages > 0 ? data.pages - 1 : 0;
-            this.http.get<Array<any>>(`${this.baseUrl}?_page=${page}&_rows=${rows}&_sort=nombre`, this.option)
-              .subscribe(
-                lst => subscriber.next({ page, pages: data.pages, rows: data.rows, list: lst }),
-                err => subscriber.error(err)
-              )
+            subscriber.next({ page:data.number, pages: data.totalPages, rows: data.size, list: data.content });
           },
           err => subscriber.error(err)
         )
@@ -49,16 +47,16 @@ export class ContactosDAOService extends RESTDAOService<any, any> {
 @Injectable({
   providedIn: 'root'
 })
-export class ContactosViewModelService {
+export class PeliculasViewModelService {
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
-  protected listURL = '/contactos';
+  protected listURL = '/peliculas';
 
   constructor(protected notify: NotificationService, public auth: AuthService,
     protected out: LoggerService, private navigation: NavigationService,
-    protected dao: ContactosDAOService, protected router: Router) { }
+    protected dao: PeliculasDAOService, protected router: Router) { }
 
   public get Modo(): ModoCRUD { return this.modo; }
   public get Listado(): Array<any> { return this.listado; }
@@ -144,7 +142,7 @@ export class ContactosViewModelService {
   page = 0;
   totalPages = 0;
   totalRows = 0;
-  rowsPerPage = 8;
+  rowsPerPage = 13;
   load(page: number = -1) {
     if(page < 0) page = this.page
     this.dao.page(page, this.rowsPerPage).subscribe(
